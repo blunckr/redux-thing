@@ -1,8 +1,10 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { createStore, compose } from 'redux';
-import App from './components/App.jsx';
+
+import Actions from './actions';
 import todoApp from './store';
+import App from './components/App.jsx';
 
 import { devTools, persistState } from 'redux-devtools';
 import { DevTools, DebugPanel, LogMonitor } from 'redux-devtools/lib/react';
@@ -30,6 +32,16 @@ if(!DEV_TOOLS) {
       <DevTools store={store} monitor={LogMonitor} />
     </DebugPanel>;
 }
+
+var storedState = localStorage.App;
+if (storedState){
+  store.dispatch(Actions.loadState(JSON.parse(storedState)));
+}
+
+store.subscribe(()=>{
+  localStorage.App = JSON.stringify(store.getState());
+});
+
 var rootElement = document.getElementById('app');
 render(
   <div>

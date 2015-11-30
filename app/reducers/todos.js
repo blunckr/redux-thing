@@ -9,10 +9,12 @@ export default function todos(state = [], action) {
       text: action.text,
       completed: false
     });
-    return _.cloneDeep(state);
+    return _.clone(state);
   case Constants.COMPLETE_TODO:
     state[action.index].completed = true;
     return _.cloneDeep(state);
+  case Constants.LOAD_STATE:
+    return action.state.todos;
   default:
     return state;
   }

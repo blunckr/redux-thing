@@ -11,5 +11,9 @@ export default {
 
   setVisibilityFilter(filter) {
     return { type: Constants.SET_VISIBILITY_FILTER, filter };
+  },
+
+  loadState(state) {
+    return { type: Constants.LOAD_STATE, state };
   }
 };

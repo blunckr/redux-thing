@@ -4,6 +4,8 @@ export default function visibilityFilter(state = Constants.VisibilityFilters.SHO
   switch(action.type){
   case Constants.SET_VISIBILITY_FILTER:
     return action.filter;
+  case Constants.LOAD_STATE:
+    return action.state.visibilityFilter;
   default:
     return state;
   }
