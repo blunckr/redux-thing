@@ -14,6 +14,8 @@
     "babel-loader": "^6.2.0",
     "babel-preset-es2015": "^6.1.18",
     "babel-preset-react": "^6.1.18",
+    "eslint": "^1.10.2",
+    "eslint-plugin-react": "^3.11.1",
     "redux-devtools": "^2.1.5",
     "webpack": "^1.12.9",
     "webpack-dev-server": "^1.14.0"
@@ -21,7 +23,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
-    "start": "webpack-dev-server --progress --colors"
+    "start": "webpack-dev-server --progress --colors",
+    "dev": "DEV_TOOLS=true webpack-dev-server --progress --colors",
+    "lint": "eslint app"
   },
   "author": "",
   "license": "ISC"

@@ -1,3 +1,6 @@
+/*global process require module*/
+var webpack = require('webpack');
+
 module.exports = {
   entry: './app/index.jsx',
   output: {
@@ -11,5 +14,10 @@ module.exports = {
   },
   devServer: {
     contentBase: './app'
-  }
+  },
+  plugins: [
+    new webpack.DefinePlugin({
+      DEV_TOOLS: process.env.DEV_TOOLS || 'false'
+    })
+  ]
 };
