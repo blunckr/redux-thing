@@ -23,7 +23,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
-    "start": "webpack-dev-server --progress --colors",
+    "start": "webpack-dev-server --progress --colors --hot --host 0.0.0.0",
     "dev": "DEV_TOOLS=true webpack-dev-server --progress --colors",
     "lint": "eslint app"
   },

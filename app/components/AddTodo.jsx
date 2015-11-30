@@ -23,6 +23,7 @@ export default class AddTodo extends React.Component {
       <div>
         <form onSubmit={(e)=>{this.addTodo(e);}}>
           <input type="text" value={this.state.text} onChange={(e)=> {this.updateText(e);}}/>
+          <input type="submit" value="Create" />
         </form>
       </div>
     );
