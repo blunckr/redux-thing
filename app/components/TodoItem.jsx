@@ -6,8 +6,8 @@ export default class TodoItem extends React.Component {
     var todo = this.props.todo;
     return (
       <li>
-        <span>{todo.text} - </span>
-        {todo.completed ? <span>Completed!</span> : <button onClick={()=>{this.completeTodo();}}>Complete</button>}
+        <span>{todo.get('text')} - </span>
+        {todo.get('completed') ? <span>Completed!</span> : <button onClick={()=>{this.completeTodo();}}>Complete</button>}
       </li>
     );
   }

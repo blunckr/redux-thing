@@ -1,5 +1,4 @@
 import React from 'react';
-import _ from 'lodash';
 
 import Constants from '../constants';
 
@@ -11,7 +10,7 @@ export default class TodoList extends React.Component {
 
     return (
       <ul>
-        {_.map(todos, (todo)=>{
+        {todos.map((todo)=>{
           var index = this.props.todos.indexOf(todo);
           return <TodoItem key={index} todo={todo} index={index} dispatch={this.props.dispatch}/>;
         })}
@@ -26,9 +25,9 @@ export default class TodoList extends React.Component {
     case f.SHOW_ALL:
       return todos;
     case f.SHOW_ACTIVE:
-      return _.filter(todos, {completed: false});
+      return todos.filter((t)=>{ return !t.get('completed'); });
     case f.SHOW_COMPLETED:
-      return _.filter(todos, {completed: true});
+      return todos.filter((t)=>{ return t.get('completed'); });
     }
   }
 }
