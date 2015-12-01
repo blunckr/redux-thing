@@ -11,7 +11,7 @@ export default class TodoList extends React.Component {
     return (
       <ul>
         {todos.map((todo)=>{
-          var index = this.props.todos.indexOf(todo);
+          var index = this.props.todos.findIndex(t => todo === t);
           return <TodoItem key={index} todo={todo} index={index} dispatch={this.props.dispatch}/>;
         })}
       </ul>
